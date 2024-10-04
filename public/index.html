@@ -23,6 +23,20 @@
       padding: 2rem;
     }
 
+    #clipboard-button{
+      display: inline-block;
+    }
+
+    .control.is-clearfix{
+      text-align: center;
+      position: relative;
+    }
+
+    .label.is-uppercase{
+      font-size: 15px;
+      
+    }
+
     @media screen and (min-width: 1068px) {
       .container {
         max-width: 600px;
@@ -42,31 +56,31 @@
 
     <div class="container">
 
-      <h1 class="title">TOTP Token Generator</h1>
+      <h1 class="title">Token Generator</h1>
 
       <div class="field">
-        <label class="label is-uppercase">Your Secret Key</label>
+        <label class="label is-uppercase">你的密钥</label>
         <div class="control">
           <input class="input" type="text" v-model="secret_key" placeholder="The secret key (in base-32 format)">
         </div>
       </div>
 
       <div class="field">
-        <label class="label is-uppercase">Number of Digits</label>
+        <label class="label is-uppercase">数字个数</label>
         <div class="control">
           <input class="input" type="text" v-model="digits" placeholder="Usually 6">
         </div>
       </div>
 
       <div class="field">
-        <label class="label is-uppercase">Token Period (in seconds)</label>
+        <label class="label is-uppercase">令牌时间(秒)</label>
         <div class="control">
           <input class="input" type="text" v-model="period" placeholder="Usually 30">
         </div>
       </div>
 
       <div class="content">
-        <span class="has-text-grey is-size-7">Updating in {{ updatingIn }} seconds</span>
+        <span class="has-text-grey is-size-7">{{ updatingIn }} 秒后更新</span>
         <progress class="progress is-info is-small" v-bind:value="updatingIn" :max="period"></progress>
       </div>
 
@@ -75,8 +89,8 @@
       </div>
 
       <div class="control is-clearfix">
-        <a class="button is-large is-light is-pulled-right" id="clipboard-button" data-clipboard-target="#token" title="Copy token to clipboard">
-          <img src="img/clippy.svg" height="36" width="36">
+        <a class="button is-large is-light" id="clipboard-button" data-clipboard-target="#token" title="复制到粘贴板">
+          <img src="img/clippy.jpg" height="50" width="50" style="margin-top: -6px;">
         </a>
       </div>
 
@@ -87,7 +101,7 @@
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        Built by <a href="https://dan.hersam.com">Dan Hersam</a>. Source on <a href="https://github.com/jaden/totp-generator">Github</a>.
+        Built by <a href="https://t.me/gegehi" target="_blank">@gegehi</a> . Source on <a href="https://github.com/jaden/totp-generator">Github</a>.
       </div>
     </div>
   </footer>
